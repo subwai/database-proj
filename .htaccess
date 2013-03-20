@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} !^(.*)(jpg|png|gif|ico|js|css|html|htm|jar|zip|rar|otf|php)$ [NC]
+RewriteRule ^(.*)$  base/bootstrap.php?map=$1
