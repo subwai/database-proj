@@ -1,7 +1,6 @@
 <?php
 require_once "./conf/config.php";
 require_once "./base/controller.php";
-require_once "./base/database.inc.php";
 require_once "./models/views/master_view_model.php";
 
 class Application extends Controller
@@ -9,8 +8,7 @@ class Application extends Controller
     public $Database;
 
     public function __construct() {
-        $config = new Config();
-        $this->Database = new Database($config->username, $config->password, $config->database);
+        $this->Database = new PDO("mysql:host=puccini.cs.lth.se;dbname=".Config::database, Config::username, Config::password);
         $this->MasterModel = new MasterViewModel();
     }
 
@@ -18,7 +16,7 @@ class Application extends Controller
     }
 
     public function onResultExecuted() {
-        $this->Database->closeConnection();
+        $this->Database = null;
     }
 }
 

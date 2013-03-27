@@ -1,7 +1,7 @@
 <?php
 
 class Config {
-	public static $username = "db12";
-	public static $password = "mer12ada";
-	public static $database = "db12";
+	const username = "db12";
+	const password = "mer12ada";
+	const database = "db12";
 }
