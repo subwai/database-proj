@@ -6,6 +6,46 @@ class Index implements iTwoColumnMaster {
         $this->model = $model;
     }
 
+    function Header()
+    { /*******************************************************/ ?>
+
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#">Production</a>
+                    <div class="nav-collapse collapse navbar-responsive-collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">Create pallet</a></li>
+                            <li><a href="#">Quality check</a></li>
+                        </ul>
+                        <form class="navbar-search pull-left">
+                            <input type="text" class="search-query span2" placeholder="Search">
+                        </form>
+                        <ul class="nav pull-right">
+                            <li class="divider-vertical"></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">How to</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">About us</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <?php /*******************************************************/ }
+
     function LeftColumn()
     { /*******************************************************/ ?>
 
@@ -17,7 +57,7 @@ class Index implements iTwoColumnMaster {
 
     <?php /*******************************************************/ }
 
-    function RightColumn()
+    function CenterColumn()
     { /*******************************************************/ ?>
     
 <table class="table table-striped table-bordered">
@@ -31,15 +71,10 @@ class Index implements iTwoColumnMaster {
               </thead>
               <tbody>
                 <tr>
-                  <td rowspan="2">1</td>
+                  <td>1</td>
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@TwBootstrap</td>
                 </tr>
                 <tr>
                   <td>2</td>
@@ -49,7 +84,8 @@ class Index implements iTwoColumnMaster {
                 </tr>
                 <tr>
                   <td>3</td>
-                  <td colspan="2">Larry the Bird</td>
+                  <td>Larry the Bird</td>
+                  <td></td>
                   <td>@twitter</td>
                 </tr>
               </tbody>

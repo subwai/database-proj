@@ -2,8 +2,8 @@
 
 interface iTwoColumnMaster
 {
-    public function LeftColumn();
-    public function RightColumn();
+    public function Header();
+    public function CenterColumn();
 }
 
 ?>

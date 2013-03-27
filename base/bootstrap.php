@@ -31,13 +31,15 @@ if (file_exists($controllerFile)) {
     $controller = $controllerName."_controller";
     $app = new $controller();
     $app->onActionExecuting();
-    $result = $app->$actionName();
-    $app->onActionExecuted();
-    $app->onResultExecuting();
-    if (method_exists($result, "Execute")) {
-        $result->Execute();
-    }
-    $app->onResultExecuted();
-}
+    if (method_exists($app, $actionName)) {
+        $result = $app->$actionName();
+        $app->onActionExecuted();
+        $app->onResultExecuting();
+        if (method_exists($result, "Execute")) {
+            $result->Execute();
+        }
+        $app->onResultExecuted();
+    } else echo "404";
+} else echo "404";
 
 ?>
