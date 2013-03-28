@@ -18,10 +18,10 @@ class Index implements iTwoColumnMaster {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Production</a>
+                    <a class="brand" href="/production">Production</a>
                     <div class="nav-collapse collapse navbar-responsive-collapse">
                         <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
+                            <li class="active"><a href="/production/index">Home</a></li>
                             <li><a href="#">Create pallet</a></li>
                             <li><a href="#">Quality check</a></li>
                         </ul>
@@ -46,50 +46,39 @@ class Index implements iTwoColumnMaster {
 
     <?php /*******************************************************/ }
 
-    function LeftColumn()
-    { /*******************************************************/ ?>
-
-        <ul class="nav nav-list sidenav">
-          <li class="active"><a href="#"><i class="icon-chevron-right"></i> Dropdowns</a></li>
-          <li><a href="#"><i class="icon-chevron-right"></i> Button groups</a></li>
-          <li><a href="#"><i class="icon-chevron-right"></i> Button dropdowns</a></li>
-        </ul>
-
-    <?php /*******************************************************/ }
-
     function CenterColumn()
     { /*******************************************************/ ?>
     
-<table class="table table-striped table-bordered">
-              <thead>
+        <table class="table table-striped table-bordered">
+            <thead>
                 <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
                 </tr>
-              </thead>
-              <tbody>
+            </thead>
+            <tbody>
                 <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
+                    <td>1</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
                 </tr>
                 <tr>
-                  <td>3</td>
-                  <td>Larry the Bird</td>
-                  <td></td>
-                  <td>@twitter</td>
+                    <td>2</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
                 </tr>
-              </tbody>
-</table>
+                <tr>
+                    <td>3</td>
+                    <td>Larry the Bird</td>
+                    <td></td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
 
     <?php /*******************************************************/ }
 }

@@ -18,9 +18,11 @@ class TwoColumnMaster {
     <div class="row header">
         <div class="container">
             <div class="span12 title">
-                <span>Krusty</span>
-                <span>Kookies</span>
-                <span>AB</span>
+                <a href="/">
+                    <span>Krusty</span>
+                    <span>Kookies</span>
+                    <span>AB</span>
+                </a>
             </div>
         </div>
     </div>
