@@ -1,0 +1,49 @@
+\documentclass[a4paper]{article}% !TEX encoding = UTF-8 Unicode
+
+\usepackage[T1]{fontenc}		% För svenska bokstäver
+\usepackage[utf8]{inputenc}		% Teckenkodning UTF8
+\usepackage[swedish]{babel}		% För svensk avstavning och svenska
+                          		% rubriker (t ex "Innehållsförteckning")
+\usepackage{hyperref} 			% Lägga till länkar i texten.
+\usepackage{mathtools}			% Matematiska formler
+
+\title{
+	Krusty Kookies Sweden AB: Programmerings Projekt in Databasteknik (EDA216)\\
+	EDA, Institutionen för Datavetenskap, Lunds Tekniska Högskola\\
+	Per Holm}
+\author{
+Adam Hansson Lyrén, C11 (dic11aha@student.lu.se)\\
+Mergim Rama, C11 (dic11mra@student.lu.se)\\
+}
+
+
+% *** Tillägg för denna rapport. ***
+% Paket:
+\usepackage{graphicx}         % För att inkludera bilder.
+
+% Kommandon i denna rapport
+\newcommand{\code}[1]{\texttt{#1}} % För programkod i text.
+% *** Slut på tillägg för denna rapport. ***
+
+
+\begin{document}              % Början på dokumentet
+
+\maketitle
+\centerline{\includegraphics[scale = 0.6]{LTH.JPG}}
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+
+
+\tableofcontents
+\newpage
+
+\input{introduktion.tex}
+
+\input{systemoversikt.tex}
+
+\input{implementation.tex}
+
+
+
+\end{document}
