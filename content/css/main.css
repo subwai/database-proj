@@ -67,3 +67,24 @@
 .navbar-search .search-query {
 	line-height: 16px;
 }
+
+.approved-th {
+	width: 67px;
+}
+
+.input-prepend.approved-td {
+	display: block;
+}
+
+.input-prepend.approved-td .add-on {
+	border-radius: 0;
+	margin: 0 auto;
+	width: 16px;
+	display: block;
+}
+
+.edit-group {
+	position: absolute;
+	margin-top: -40px;
+	margin-left: 75px;
+}

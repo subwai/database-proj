@@ -21,8 +21,8 @@ class Index implements iTwoColumnMaster {
                     <a class="brand" href="/production">Production</a>
                     <div class="nav-collapse collapse navbar-responsive-collapse">
                         <ul class="nav">
-                            <li class="active"><a href="/production/index">Home</a></li>
-                            <li><a href="#">Create pallet</a></li>
+                            <li class="active"><a href="/production/index">Track pallet</a></li>
+                            <li><a href="/production/createpallet">Create pallet</a></li>
                             <li><a href="#">Quality check</a></li>
                         </ul>
                         <form class="navbar-search pull-left">
@@ -53,30 +53,34 @@ class Index implements iTwoColumnMaster {
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
+                    <th>Cookie Type</th>
+                    <th>Order Id</th>
+                    <th>Baking Date</th>
+                    <th class="approved-th">Approved</th>
                 </tr>
             </thead>
             <tbody>
+            <?php foreach ($this->model->pallets as $pallet): ?>
                 <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td><?php echo $pallet->getBarcode(); ?></td>
+                    <td><?php echo $pallet->getCookieType(); ?></td>
+                    <td><?php echo $pallet->getOrderId(); ?></td>
+                    <td><?php echo $pallet->getBakingDate(); ?></td>
+                    <td>
+                        <?php 
+                            $icon = $pallet->getApproved() ? "ok" : "remove";
+                            $background = $pallet->getApproved() ? "success" : "danger";
+                        ?>
+                        <div class="input-prepend approved-td">
+                            <span class="add-on btn-<?php echo $background; ?>"><i class="icon-<?php echo $icon; ?>"></i></span>
+                        </div>
+                        <div class="btn-group edit-group">
+                            <div></div>
+                            <a href="#" class="btn"><i class="icon-pencil"></i></a>
+                        </div>
+                    </td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Larry the Bird</td>
-                    <td></td>
-                    <td>@twitter</td>
-                </tr>
+            <?php endforeach ?>
             </tbody>
         </table>
 

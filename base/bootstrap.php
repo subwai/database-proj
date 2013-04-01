@@ -31,6 +31,12 @@ if (file_exists($controllerFile)) {
     $controller = $controllerName."_controller";
     $app = new $controller();
     $app->onActionExecuting();
+    if (sizeof($_POST) > 0) {
+        if (method_exists($app, $actionName."_submit")) {
+            $actionName = $actionName."_submit";
+            $_GET["view"] = $_GET["view"]."_submit";
+        }
+    }
     if (method_exists($app, $actionName)) {
         $result = $app->$actionName();
         $app->onActionExecuted();
