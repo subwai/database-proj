@@ -8,7 +8,8 @@ class Application extends Controller
     public $Database;
 
     public function __construct() {
-        $this->Database = new PDO("mysql:host=puccini.cs.lth.se;dbname=".Config::database, Config::username, Config::password);
+        $this->Database = new mysqli("puccini.cs.lth.se", Config::username, Config::password, Config::database);
+        // $this->Database = new PDO("mysql:host=puccini.cs.lth.se;dbname=".Config::database, Config::username, Config::password);
         $this->MasterModel = new MasterViewModel();
     }
 
