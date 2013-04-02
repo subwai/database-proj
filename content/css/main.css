@@ -2,6 +2,7 @@
 	width: 33%;
 	padding: 30px 19px;
 	box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	background: #f6f6f6;
 	border-radius: 0;
 }
@@ -64,8 +65,13 @@
 	background-color: #69f;
 }
 
+.navbar-search .input-prepend.input-append {
+	margin-bottom: 0;
+}
+
 .navbar-search .search-query {
 	line-height: 16px;
+	margin-left: -1px;
 }
 
 .approved-th {
@@ -74,6 +80,7 @@
 
 .input-prepend.approved-td {
 	display: block;
+	margin-bottom: 0px;
 }
 
 .input-prepend.approved-td .add-on {
@@ -85,6 +92,6 @@
 
 .edit-group {
 	position: absolute;
-	margin-top: -40px;
+	margin-top: -30px;
 	margin-left: 75px;
 }

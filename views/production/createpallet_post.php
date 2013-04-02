@@ -1,10 +1,24 @@
 <?php
-class Index implements iTwoColumnMaster {
+class Createpallet_post implements iTwoColumnMaster {
     private $model;
+    private $success;
 
-    function __construct($model) {
+    function __construct($model, $success) {
         $this->model = $model;
+        $this->success = $success;
     }
+
+    function Head()
+    { /*******************************************************/ ?>
+
+
+    <?php /*******************************************************/ }
+
+    function Javascript()
+    { /*******************************************************/ ?>
+
+
+    <?php /*******************************************************/ }
 
     function Header()
     { /*******************************************************/ ?>
@@ -18,16 +32,12 @@ class Index implements iTwoColumnMaster {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="/material">Material</a>
+                    <a class="brand" href="/production">Production</a>
                     <div class="nav-collapse collapse navbar-responsive-collapse">
                         <ul class="nav">
-                            <li class="active"><a href="/material/index">Home</a></li>
-                            <li><a href="#">Create pallet</a></li>
-                            <li><a href="#">Quality check</a></li>
+                            <li><a href="/production/index">Track pallet</a></li>
+                            <li class="active"><a href="#">Create pallet</a></li>
                         </ul>
-                        <form class="navbar-search pull-left">
-                            <input type="text" class="search-query span2" placeholder="Search">
-                        </form>
                         <ul class="nav pull-right">
                             <li class="divider-vertical"></li>
                             <li class="dropdown">
@@ -49,36 +59,18 @@ class Index implements iTwoColumnMaster {
     function CenterColumn()
     { /*******************************************************/ ?>
     
-        <table class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Larry the Bird</td>
-                    <td></td>
-                    <td>@twitter</td>
-                </tr>
-            </tbody>
-        </table>
+    <?php if ($this->success): ?>
+        <div class="alert alert-success">  
+            <strong>Success!</strong> Created pallet with barcode: <?php echo $this->model; ?>
+        </div>
+        <a href="/production/createpallet" class="btn btn-success">Create another pallet</a>
+    <?php else: ?>
+        <div class="alert alert-error">  
+            <strong>Error!</strong> Error message: <?php echo $this->model; ?>
+        </div>
+        <a href="/production/createpallet" class="btn btn-success">Create another pallet</a>
+    <?php endif ?>
+        
 
     <?php /*******************************************************/ }
 }

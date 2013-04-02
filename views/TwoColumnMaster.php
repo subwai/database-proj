@@ -11,8 +11,7 @@ class TwoColumnMaster {
     <link rel="stylesheet" href="/content/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/content/bootstrap/css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="/content/css/main.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="/content/bootstrap/js/bootstrap.min.js"></script>
+    <?php $view->Head(); ?>
 </head>
 <body>
     <div class="row header">
@@ -32,14 +31,13 @@ class TwoColumnMaster {
                 <?php $view->Header(); ?>
                 <?php $view->CenterColumn(); ?>
             </div>
-            <!--<div class="span3">
-                <?php $view->LeftColumn(); ?>
-            </div>
-            <div class="span9">
-                <?php $view->RightColumn(); ?>
-            </div>-->
         </div>
     </div>
+
+    <!-- Javascript on bottom for quick load -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/content/bootstrap/js/bootstrap.min.js"></script>
+    <?php $view->Javascript(); ?>
 </body>
 </html>
 

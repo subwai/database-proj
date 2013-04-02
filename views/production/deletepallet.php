@@ -1,9 +1,11 @@
 <?php
-class Createpallet implements iTwoColumnMaster {
+class Deletepallet implements iTwoColumnMaster {
     private $model;
+    private $success;
 
-    function __construct($model) {
+    function __construct($model, $success) {
         $this->model = $model;
+        $this->success = $success;
     }
 
     function Head()
@@ -34,7 +36,7 @@ class Createpallet implements iTwoColumnMaster {
                     <div class="nav-collapse collapse navbar-responsive-collapse">
                         <ul class="nav">
                             <li><a href="/production/index">Track pallet</a></li>
-                            <li class="active"><a href="#">Create pallet</a></li>
+                            <li><a href="#">Create pallet</a></li>
                         </ul>
                         <ul class="nav pull-right">
                             <li class="divider-vertical"></li>
@@ -57,32 +59,24 @@ class Createpallet implements iTwoColumnMaster {
     function CenterColumn()
     { /*******************************************************/ ?>
     
+    <?php if ($this->success): ?>
+        <div class="alert alert-success">  
+            <strong>Success!</strong> Deleted pallet with barcode: <?php echo $this->model; ?>
+        </div>
+        <a href="/production/" class="btn btn-success">Back to index</a>
+    <?php else: ?>
         <form method="POST">
-            <fieldset>
-                <legend>Create a new pallet</legend>
-                <label>Cookie</label>
-                <select name="cookie" class="span3">
-                <?php foreach ($this->model->cookies as $cookie): ?>
-                    <option><?php echo ucwords(strtolower($cookie)); ?></option>
-                <?php endforeach ?>
-                    <option>
-                </select>
-                <label>Order</label>
-                <select name="order" class="span3">
-                <?php foreach ($this->model->orders as $id => $order): ?>
-                    <option value="<?php echo $id; ?>">
-                        <?php echo $order->getCustomerName()." - ".$order->getOrderDate(); ?>
-                    </option>
-                <?php endforeach ?>
-                    <option>
-                </select>
-                <div class="control-group">
-                    <div class="controls">
-                        <button type="submit" class="btn">Submit</button>
-                    </div>
+            <legend>Delete pallet: <?php echo $this->model; ?></legend>
+            <label>Really delete pallet?</label>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn">Yes</button>
+                    <a href="/production/editpallet/<?php echo $this->model; ?>" class="btn">No</a>
                 </div>
-            </fieldset>
-        </form>
+            </div>
+            <input name="delete" value="true" hidden />
+        </form> 
+    <?php endif ?>
 
     <?php /*******************************************************/ }
 }

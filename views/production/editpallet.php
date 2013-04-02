@@ -1,11 +1,25 @@
 <?php
-class Createpallet_submit implements iTwoColumnMaster {
+class Editpallet implements iTwoColumnMaster {
     private $model;
+    private $success;
 
-    function __construct($model) {
+    function __construct($model, $success) {
         $this->model = $model;
+        $this->success = $success;
     }
 
+    function Head()
+    { /*******************************************************/ ?>
+
+
+    <?php /*******************************************************/ }
+
+    function Javascript()
+    { /*******************************************************/ ?>
+
+
+    <?php /*******************************************************/ }
+    
     function Header()
     { /*******************************************************/ ?>
 
@@ -22,8 +36,7 @@ class Createpallet_submit implements iTwoColumnMaster {
                     <div class="nav-collapse collapse navbar-responsive-collapse">
                         <ul class="nav">
                             <li><a href="/production/index">Track pallet</a></li>
-                            <li class="active"><a href="#">Create pallet</a></li>
-                            <li><a href="#">Quality check</a></li>
+                            <li><a href="#">Create pallet</a></li>
                         </ul>
                         <ul class="nav pull-right">
                             <li class="divider-vertical"></li>
@@ -46,10 +59,24 @@ class Createpallet_submit implements iTwoColumnMaster {
     function CenterColumn()
     { /*******************************************************/ ?>
     
-        <div class="alert alert-success">  
-            <strong>Success!</strong> Created pallet with barcode: <?php echo $this->model; ?>
-        </div>
-        <a href="/production/createpallet" class="btn btn-success">Create another pallet</a>
+    <?php if ($this->success): ?>
+        <form method="POST">
+            <legend>Edit pallet: <?php echo $this->model->getBarcode(); ?></legend>
+            <div class="control-group">
+                <div class="controls">
+                    <?php 
+                        $icon = $this->model->getApproved() ? "ok" : "remove";
+                        $background = $this->model->getApproved() ? "success" : "danger";
+                    ?>
+                    <button name="toggle" value="true" type="submit" class="btn btn-<?php echo $background; ?>"><i class="icon-<?php echo $icon; ?>"></i> Approved</button>
+                    <a href="/production/deletepallet/<?php echo $this->model->getBarcode(); ?>" class="btn">Delete</a>
+                </div>
+            </div>
+        </form>
+    <?php else: ?>
+
+    <?php endif ?>
+        
 
     <?php /*******************************************************/ }
 }

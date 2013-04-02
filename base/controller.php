@@ -17,7 +17,7 @@ class Controller
     public function onResultExecuted() {
     }
 
-    public function view($model = array(), $viewName = null, $masterName = null) {
+    public function view($model = array(), $success = true, $viewName = null, $masterName = null) {
         $viewFile = "./views";
         $viewFile .= "/".$_GET["controller"];
         $viewFile .= "/".$_GET["view"];
@@ -32,7 +32,12 @@ class Controller
             }
             require $viewFile;
             $viewName = is_null($viewName) ? ucfirst($_GET["view"]) : $viewName;
-            $view = new $viewName($model);
+            $r = new ReflectionMethod($viewName, "__construct");
+            if ($r->getNumberOfParameters() > 1) {
+                $view = new $viewName($model, $success);
+            } else {
+                $view = new $viewName($model);
+            }
             $masterName = is_null($masterName) ? substr(array_shift(class_implements($view)), 1) : $masterName;
             return new ViewResult($this->MasterModel, $view, $masterName);
         } else {

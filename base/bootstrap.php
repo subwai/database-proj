@@ -32,9 +32,9 @@ if (file_exists($controllerFile)) {
     $app = new $controller();
     $app->onActionExecuting();
     if (sizeof($_POST) > 0) {
-        if (method_exists($app, $actionName."_submit")) {
-            $actionName = $actionName."_submit";
-            $_GET["view"] = $_GET["view"]."_submit";
+        if (method_exists($app, $actionName."_post")) {
+            $actionName = $actionName."_post";
+            $_GET["view"] = $_GET["view"]."_post";
         }
     }
     if (method_exists($app, $actionName)) {

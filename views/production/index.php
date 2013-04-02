@@ -6,6 +6,41 @@ class Index implements iTwoColumnMaster {
         $this->model = $model;
     }
 
+    function Head()
+    { /*******************************************************/ ?>
+
+        <link rel="stylesheet" type="text/css" href="/content/bootstrap/datepicker/daterangepicker.css" />
+
+    <?php /*******************************************************/ }
+
+    function Javascript()
+    { /*******************************************************/ ?>
+
+        <script type="text/javascript" src="/content/bootstrap/datepicker/date.js"></script>
+        <script type="text/javascript" src="/content/bootstrap/datepicker/daterangepicker.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#daterange').daterangepicker({
+                        ranges: {
+                            'Today': ['today', 'today'],
+                            'Yesterday': ['yesterday', 'yesterday'],
+                            'Last 7 Days': [Date.today().add({ days: -6 }), 'today'],
+                            'Last 30 Days': [Date.today().add({ days: -29 }), 'today'],
+                            'This Month': [Date.today().moveToFirstDayOfMonth(), Date.today().moveToLastDayOfMonth()],
+                            'Last Month': [Date.today().moveToFirstDayOfMonth().add({ months: -1 }), Date.today().moveToFirstDayOfMonth().add({ days: -1 })]
+                        }
+                    },
+                    function(start, end) {
+                        $('#daterange').val(start.toString('yyyy/MM/dd') + ' - ' + end.toString('yyyy/MM/dd'));
+                    }
+                );
+                $('#daterange').val('<?php echo $_GET["daterange"]; ?>');
+                $('input[name="search"]').val('<?php echo $_GET["search"]; ?>');
+        });
+        </script>
+
+    <?php /*******************************************************/ }
+
     function Header()
     { /*******************************************************/ ?>
 
@@ -23,10 +58,15 @@ class Index implements iTwoColumnMaster {
                         <ul class="nav">
                             <li class="active"><a href="/production/index">Track pallet</a></li>
                             <li><a href="/production/createpallet">Create pallet</a></li>
-                            <li><a href="#">Quality check</a></li>
                         </ul>
-                        <form class="navbar-search pull-left">
-                            <input type="text" class="search-query span2" placeholder="Search">
+                        <form method="GET" class="navbar-search pull-left">
+                            <div class="input-prepend input-append">
+                                <span class="add-on"><i class="icon-calendar"></i></span>
+                                <input type="text" name="daterange" id="daterange" placeholder="Select date range" autocomplete="off" />
+                                <input type="text" name="search" class="search-query span2" placeholder="Search">
+                                <!-- <span class="add-on"><i class="icon-search"></i></span> -->
+                                <button type="submit" class="btn" type="button">Search</button>
+                            </div>
                         </form>
                         <ul class="nav pull-right">
                             <li class="divider-vertical"></li>
@@ -54,6 +94,8 @@ class Index implements iTwoColumnMaster {
                 <tr>
                     <th>#</th>
                     <th>Cookie Type</th>
+                    <th>Location</th>
+                    <th>Customer</th>
                     <th>Order Id</th>
                     <th>Baking Date</th>
                     <th class="approved-th">Approved</th>
@@ -63,7 +105,9 @@ class Index implements iTwoColumnMaster {
             <?php foreach ($this->model->pallets as $pallet): ?>
                 <tr>
                     <td><?php echo $pallet->getBarcode(); ?></td>
-                    <td><?php echo $pallet->getCookieType(); ?></td>
+                    <td><?php echo ucwords(strtolower($pallet->getCookieType())); ?></td>
+                    <td><?php echo $pallet->getLocation(); ?></td>
+                    <td><?php echo $pallet->getCustomer(); ?></td>
                     <td><?php echo $pallet->getOrderId(); ?></td>
                     <td><?php echo $pallet->getBakingDate(); ?></td>
                     <td>
@@ -76,7 +120,7 @@ class Index implements iTwoColumnMaster {
                         </div>
                         <div class="btn-group edit-group">
                             <div></div>
-                            <a href="#" class="btn"><i class="icon-pencil"></i></a>
+                            <a href="/production/editpallet/<?php echo $pallet->getBarcode(); ?>" class="btn"><i class="icon-pencil"></i></a>
                         </div>
                     </td>
                 </tr>
