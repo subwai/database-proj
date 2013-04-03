@@ -44,45 +44,10 @@ class Index implements iTwoColumnMaster {
     function Header()
     { /*******************************************************/ ?>
 
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container">
-
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="/production">Production</a>
-                    <div class="nav-collapse collapse navbar-responsive-collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="/production/index">Track pallet</a></li>
-                            <li><a href="/production/createpallet">Create pallet</a></li>
-                        </ul>
-                        <form method="GET" class="navbar-search pull-left">
-                            <div class="input-prepend input-append">
-                                <span class="add-on"><i class="icon-calendar"></i></span>
-                                <input type="text" name="daterange" id="daterange" placeholder="Select date range" autocomplete="off" />
-                                <input type="text" name="search" class="search-query span2" placeholder="Search">
-                                <!-- <span class="add-on"><i class="icon-search"></i></span> -->
-                                <button type="submit" class="btn" type="button">Search</button>
-                            </div>
-                        </form>
-                        <ul class="nav pull-right">
-                            <li class="divider-vertical"></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">How to</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">About us</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <?php 
+        require "./views/production/header.php"; 
+        loadHeader("index", true);        
+    ?>
 
     <?php /*******************************************************/ }
 

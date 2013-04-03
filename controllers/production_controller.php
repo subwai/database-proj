@@ -8,21 +8,30 @@ class production_controller extends Application {
 	
 	public function index() {
 		$model = new IndexViewModel();
-		$query = "SELECT * FROM pallet NATURAL JOIN orders";
-		$first = true;
+
+		$dates = array();
 		if (!empty($_GET["daterange"])) {
 			$daterange = str_replace("/", "-", $_GET["daterange"]);
 			$dates = explode(" - ", $daterange);
-			$query .= sprintf(" WHERE bakingDate >= '%s' AND bakingDate <= '%s'", $dates[0], $dates[1]);
-			$first = false;
 		}
 
-		if (!empty($_GET["search"])) {
-			$query .= $first ? " WHERE " : " AND ";
-			$query .= sprintf("cookieType LIKE '%%%s%%'", $_GET["search"]);
+		if (!empty($_GET["daterange"]) && !empty($_GET["search"])) {
+			$stmt = $this->DBCon->prepare("SELECT * FROM pallet NATURAL JOIN orders WHERE bakingDate >= ? AND bakingDate <= ? AND (barcode = ? OR cookieType LIKE ?  OR orderId = ? OR customerName LIKE ? OR location LIKE ?)");
+			$like =  '%'.$_GET["search"].'%';
+			$stmt->bind_param("ssisiss", $dates[0], $dates[1], $_GET["search"], $like, $_GET["search"], $like, $like);
+		} else if (!empty($_GET["daterange"])) {
+			$stmt = $this->DBCon->prepare("SELECT * FROM pallet NATURAL JOIN orders WHERE bakingDate >= ? AND bakingDate <= ?");
+			$stmt->bind_param("ss", $dates[0], $dates[1]);
+		} else if (!empty($_GET["search"])) {
+			$stmt = $this->DBCon->prepare("SELECT * FROM pallet NATURAL JOIN orders WHERE barcode = ? OR cookieType LIKE ? OR orderId = ? OR customerName LIKE ? OR location LIKE ?");
+			$like =  '%'.$_GET["search"].'%';
+			$stmt->bind_param("isiss", $_GET["search"], $like, $_GET["search"], $like, $like);
+		} else {
+			$stmt = $this->DBCon->prepare("SELECT * FROM pallet NATURAL JOIN orders");
 		}
 
-		$res = $this->DBCon->query($query);
+		$stmt->execute();
+		$res = $stmt->get_result();
 		while ($row = $res->fetch_assoc()) {
 			$barcode = $row['barCode'];
 			$cookieType = $row['cookieType'];
@@ -38,11 +47,15 @@ class production_controller extends Application {
 
 	public function createpallet() {
 		$model = new PalletViewModel();
-		$res = $this->DBCon->query("SELECT type FROM cookies");
+		$stmt = $this->DBCon->prepare("SELECT type FROM cookies");
+		$stmt->execute();
+		$res = $stmt->get_result();
 		while ($row = $res->fetch_assoc()) {
 			$model->cookies[] = $row['type'];
 		}
-		$res = $this->DBCon->query("SELECT * FROM orders");
+		$stmt = $this->DBCon->prepare("SELECT * FROM orders");
+		$stmt->execute();
+		$res = $stmt->get_result();
 		while ($row = $res->fetch_assoc()) {
 			$id = $row['orderId'];
 			$orderDate = $row['orderDate'];
@@ -56,10 +69,14 @@ class production_controller extends Application {
 	public function createpallet_post() {
 		$cookie = strtolower($_POST["cookie"]);
 		$order = $_POST["order"];
-		if ($this->DBCon->query(sprintf("INSERT INTO pallet (cookieType, orderId, bakingDate) VALUES ('%s', %d, CURDATE())", $cookie, $order))) {
+		$stmt = $this->DBCon->prepare("INSERT INTO pallet (cookieType, orderId, bakingDate) VALUES (?, ?, CURDATE())");
+		$stmt->bind_param("si", $cookie, $order);
+		if ($stmt->execute()) {
 			$id = $this->DBCon->insert_id;
-			$this->DBCon->query(sprintf("UPDATE rawmaterial SET storageAmount = storageAmount - coalesce((SELECT amount FROM rawingr WHERE rawMaterialName = name AND cookieType = '%s'), 0)", $cookie));
-		    return $this->view($id); 
+			$stmt = $this->DBCon->prepare("UPDATE rawmaterial SET storageAmount = storageAmount - coalesce((SELECT amount FROM rawingr WHERE rawMaterialName = name AND cookieType = ?), 0)");
+			$stmt->bind_param("s", $cookie);
+			$stmt->execute();
+			return $this->view($id); 
 		} else {
 			return $this->view($this->DBCon->error, false);
 		}
@@ -67,10 +84,15 @@ class production_controller extends Application {
 
 	public function editpallet() {
 		if ($_POST["toggle"]) {
-			$this->DBCon->query(sprintf("UPDATE pallet SET approved = !approved WHERE barcode = %d", $_GET["barcode"]));
+			$stmt = $this->DBCon->prepare("UPDATE pallet SET approved = !approved WHERE barcode = ?");
+			$stmt->bind_param("i", $_GET["barcode"]);
+			$stmt->execute();
 		}
 
-		$res = $this->DBCon->query(sprintf("SELECT * FROM pallet WHERE barcode = %d", $_GET["barcode"]));
+		$stmt = $this->DBCon->prepare("SELECT * FROM pallet WHERE barcode = ?");
+		$stmt->bind_param("i", $_GET["barcode"]);
+		$stmt->execute();
+		$res = $stmt->get_result();
 		if ($res->num_rows > 0) {
 			$row = $res->fetch_assoc();
 			$barcode = $row['barCode'];
@@ -88,7 +110,9 @@ class production_controller extends Application {
 
 	public function deletepallet() {
 		if ($_POST["delete"]) {
-			$this->DBCon->query(sprintf("DELETE FROM pallet WHERE barcode = %d", $_GET["barcode"]));
+			$stmt = $this->DBCon->prepare("DELETE FROM pallet WHERE barcode = ?");
+			$stmt->bind_param("i", $_GET["barcode"]);
+			$stmt->execute();
 			return $this->view($_GET["barcode"]);
 		} else {
 			return $this->view($_GET["barcode"], false);
