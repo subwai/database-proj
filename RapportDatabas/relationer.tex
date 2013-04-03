@@ -10,6 +10,8 @@ Databasen vi har skapat består av 7 relationer varav två av relationerna är r
 \item{OrderCookie(\underline{\emph{orderId}}, \underline{\emph{cookieType}}, quantity)}
 \item{Pallet(\underline{barCode}, \emph{cookieType}, \emph{orderId}, approved, bakingDate)}
 \item{Rawmaterial(\underline{name}, storageAmount, unit)}
-\item{Rawingr(\underline{\emph{cookieType}}, \underline{\emph{rawMaterialName}}, amount, unit)}
+\item{Rawingr(\underline{\emph{cookieType}}, \underline{\emph{rawMaterialName}}, amount)}
 
 \end{itemize}
+
+Eftersom våra relationer saknar funktionella beroenden mellan attributen och att de endast har nyckelberoenden så är våra relationer i BCNF. 
