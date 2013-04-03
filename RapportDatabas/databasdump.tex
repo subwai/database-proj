@@ -1,5 +1,24 @@
+
+\lstset{
+         numberstyle=\tiny,
+         basicstyle={\footnotesize\ttfamily\bfseries},
+         frameround=tttt,
+         breaklines=true,
+         keywordstyle=\color[RGB]{32,74,135},
+         commentstyle=\color[RGB]{143,89,2},
+         stringstyle=\color[RGB]{78,154,6},
+         %identifierstyle=\color[RGB]{92,53,204},
+ 		morekeywords={CreateMbrCache,mbr,FilterMbrWithin,MbrMinX,MbrMinY,MbrMaxX,MbrMaxY,Within,group_concat}
+}
+
 \section{Databasdump}
+
+
+
+\begin{lstlisting}
+
 CREATE TABLE `cookies` (
+
   `type` varchar(40) NOT NULL DEFAULT '',
   `qualityStandard` int(3) NOT NULL DEFAULT '90',
   PRIMARY KEY (`type`)
@@ -56,3 +75,4 @@ CREATE TABLE `pallet` (
   FOREIGN KEY (`cookieType`) REFERENCES `cookies` (`type`),
   FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`)
 );
+\end{lstlisting}
