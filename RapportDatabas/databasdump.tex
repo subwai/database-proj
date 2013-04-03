@@ -1,0 +1,58 @@
+\section{Databasdump}
+CREATE TABLE `cookies` (
+  `type` varchar(40) NOT NULL DEFAULT '',
+  `qualityStandard` int(3) NOT NULL DEFAULT '90',
+  PRIMARY KEY (`type`)
+);
+
+CREATE TABLE `rawingr` (
+  `cookieType` varchar(40) NOT NULL DEFAULT '',
+  `rawMaterialName` varchar(40) NOT NULL DEFAULT '',
+  `amount` double(10,0) NOT NULL,
+  PRIMARY KEY (`cookieType`,`rawMaterialName`),
+   FOREIGN KEY (`cookieType`) REFERENCES `cookies` (`type`),
+  FOREIGN KEY (`rawMaterialName`) REFERENCES `rawmaterial` (`name`)
+);
+
+CREATE TABLE `orders` (
+  `orderId` int(10) NOT NULL AUTO_INCREMENT,
+  `orderDate` date NOT NULL,
+  `deliveryDate` date DEFAULT NULL,
+  `customerName` varchar(40) NOT NULL DEFAULT '',
+  PRIMARY KEY (`orderId`),
+  FOREIGN KEY (`customerName`) REFERENCES `customer` (`name`)
+);
+
+CREATE TABLE `customer` (
+  `name` varchar(40) NOT NULL DEFAULT '',
+  `address` varchar(40) NOT NULL DEFAULT '',
+  PRIMARY KEY (`name`)
+);
+
+CREATE TABLE `ordercookie` (
+  `quantity` int(10) NOT NULL,
+  `orderId` int(10) NOT NULL,
+  `cookieType` varchar(40) NOT NULL,
+  PRIMARY KEY (`orderId`,`cookieType`),
+  FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`),
+  FOREIGN KEY (`cookieType`) REFERENCES `cookies` (`type`)
+);
+
+CREATE TABLE `rawmaterial` (
+  `name` varchar(40) NOT NULL DEFAULT '',
+  `storageAmount` double(10,0) NOT NULL,
+  `unit` varchar(45) DEFAULT 'g',
+  PRIMARY KEY (`name`)
+);
+
+CREATE TABLE `pallet` (
+  `barCode` int(10) NOT NULL AUTO_INCREMENT,
+  `cookieType` varchar(40) NOT NULL,
+  `location` varchar(45) NOT NULL DEFAULT 'Freezing Storage',
+  `orderId` int(10) NOT NULL,
+  `approved` tinyint(4) NOT NULL DEFAULT '1',
+  `bakingDate` date NOT NULL,
+  PRIMARY KEY (`barCode`),
+  FOREIGN KEY (`cookieType`) REFERENCES `cookies` (`type`),
+  FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`)
+);
