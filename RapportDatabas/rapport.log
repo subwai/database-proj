@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  3 APR 2013 14:50
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  3 APR 2013 15:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -554,15 +554,15 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-<LTH.JPG, id=24, 363.2772pt x 363.2772pt>
-File: LTH.JPG Graphic file (type jpg)
- <use LTH.JPG>
-Package pdftex.def Info: LTH.JPG used on input line 32.
+<LTH.jpg, id=24, 363.2772pt x 363.2772pt>
+File: LTH.jpg Graphic file (type jpg)
+ <use LTH.jpg>
+Package pdftex.def Info: LTH.jpg used on input line 32.
 (pdftex.def)             Requested size: 217.968pt x 217.968pt.
  [1
 
-{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./LTH.J
-PG>] (./rapport.toc)
+{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./LTH.j
+pg>] (./rapport.toc)
 \tf@toc=\write4
 \openout4 = `rapport.toc'.
 
@@ -599,8 +599,8 @@ Package rerunfilecheck Info: File `rapport.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 54.
  ) 
 Here is how much of TeX's memory you used:
- 6780 strings out of 493633
- 96200 string characters out of 3143378
+ 6779 strings out of 493633
+ 96196 string characters out of 3143378
  181326 words of memory out of 3000000
  9978 multiletter control sequences out of 15000+200000
  12804 words of font info for 35 fonts, out of 3000000 for 9000
