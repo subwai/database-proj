@@ -69,13 +69,16 @@
 	margin-bottom: 0;
 }
 
+.navbar-search input {
+	line-height: normal!important;
+}
+
 .navbar-search .search-query {
-	line-height: 16px;
-	margin-left: -1px;
+	margin-left:-1px;
 }
 
 .approved-th {
-	width: 67px;
+	width: 69px;
 }
 
 .input-prepend.approved-td {
@@ -93,7 +96,7 @@
 .edit-group {
 	position: absolute;
 	margin-top: -30px;
-	margin-left: 75px;
+	margin-left: 77px;
 }
 
 .page-header {

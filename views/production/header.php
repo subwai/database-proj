@@ -16,7 +16,7 @@ function loadHeader($active = "", $search = false)
                 <div class="input-prepend input-append">
                     <span class="add-on"><i class="icon-calendar"></i></span>
                     <input type="text" name="daterange" id="daterange" placeholder="Select date range" autocomplete="off" />
-                    <input type="text" name="search" class="search-query span2" placeholder="Search">
+                    <input type="text" name="search" class="search-query" placeholder="Search">
                     <!-- <span class="add-on"><i class="icon-search"></i></span> -->
                     <button type="submit" class="btn" type="button">Search</button>
                 </div>
