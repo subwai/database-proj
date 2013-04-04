@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  3 APR 2013 16:18
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  4 APR 2013 18:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -745,7 +745,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-<LTH.jpg, id=28, 363.2772pt x 363.2772pt>
+<LTH.jpg, id=48, 363.2772pt x 363.2772pt>
 File: LTH.jpg Graphic file (type jpg)
  <use LTH.jpg>
 Package pdftex.def Info: LTH.jpg used on input line 35.
@@ -763,53 +763,55 @@ been already used, duplicate ignored
                    \relax 
 l.43 \newpage
               [1] (./introduktion.tex) (./systemoversikt.tex)
-(./implementation.tex) (./modellering.tex <er.jpg, id=49, 642.4pt x 481.8pt>
+(./implementation.tex) (./modellering.tex [2]
+<er.jpg, id=80, 642.4pt x 481.8pt>
 File: er.jpg Graphic file (type jpg)
-
-<use er.jpg>
+ <use er.jpg>
 Package pdftex.def Info: er.jpg used on input line 8.
 (pdftex.def)             Requested size: 385.44298pt x 289.08221pt.
-) (./relationer.tex [2]) (./databasdump.tex
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 16.
+) (./relationer.tex)
+(./databasdump.tex [3 <./er.jpg>]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 19.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <8> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 16.
- [3 <./er.jpg>])
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 19.
+ [4])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 59.
-
-[4]
+ [5]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 59.
- (./rapport.aux)
+
+(./rapport.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 59.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 59.
 Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 0B05DB93E4C04FB52EFA114907BCBC6C;274.
+(rerunfilecheck)             Checksum: 8D392AED406483BAF620868887C3B945;588.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 59.
  ) 
 Here is how much of TeX's memory you used:
- 9413 strings out of 493633
- 131256 string characters out of 3143378
- 494099 words of memory out of 3000000
- 12515 multiletter control sequences out of 15000+200000
- 14216 words of font info for 38 fonts, out of 3000000 for 9000
+ 9426 strings out of 493633
+ 131434 string characters out of 3143378
+ 431111 words of memory out of 3000000
+ 12521 multiletter control sequences out of 15000+200000
+ 14992 words of font info for 39 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  33i,6n,35p,518b,1838s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
 /usr/local/texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></u
-sr/local/texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr
-/local/texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/l
-ocal/texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/loc
-al/texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local
-/texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/t
-exlive/2011/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on rapport.pdf (5 pages, 563484 bytes).
+sr/local/texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr
+/local/texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/l
+ocal/texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/loc
+al/texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local
+/texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/t
+exlive/2011/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/tex
+live/2011/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
+Output written on rapport.pdf (6 pages, 584056 bytes).
 PDF statistics:
- 171 PDF objects out of 1000 (max. 8388607)
- 152 compressed objects within 2 object streams
- 72 named destinations out of 1000 (max. 500000)
- 59 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 206 PDF objects out of 1000 (max. 8388607)
+ 185 compressed objects within 2 object streams
+ 78 named destinations out of 1000 (max. 500000)
+ 99 words of extra memory for PDF output out of 10000 (max. 10000000)
 
