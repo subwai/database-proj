@@ -12,6 +12,22 @@ Eftersom att flera ska vara inne samtidigt och utföra handlingar i databasen in
 
 \subsection{GUI Implementation}
 
+När vi började med vårt GUI till programmet ville vi göra det så enkelt som möjligt för användaren att interagera med tjänsten. Vi började först att skapa en egen design vilket tog sin tid och visade sig vara svårare än vi trodde. Då övergick vi till att använda Twitters egna designpaket, Bootstrap som är opensource där vem som helst får använda sig av den i sina egna sidor. När vi gick över till Bootstrap blev allt mycket lättare och vi kunde få till en väldigt snygg och användarvänlig design på programmet.
 
+Vi började med att skapa en tydlig förstasida där användaren får välja vilken tjänst han vill använda. Det han har att välja emellan är:
 
-Resultatet av hela projektet. Vad vi klarat av att implementera och vad vi inte gjort. Detta för att se hur mycket vi gjort. 
+\begin{itemize}
+\item{Rawmaterial \& Recepies}
+\item{Production}
+\item{Orders \& Deliveries}
+\end{itemize}
+
+Eftersom vi endast skulle koncentrera oss på produktionen så fungerar inte de andra knapparna. 
+
+När man kommer till andra sidan, det vill säga efter att ha klickat sig in på produktion finns en vy med alla pallar som skapats av olika företag med olika ordrar. Det är väldigt snyggt upplagt vilket för det enkelt för användaren att navigera bland pallarna. Användaren kan också direkt från listan med pallar redigera en pall och få den ej godkänd samt ta bort den. 
+
+På övre delen av sidan finns det knappar som leder dig till just denna sidan, sidan för att skapa en ny pall. 
+
+Utöver detta finns det ett sökfält där användaren grafiskt kan bestämma intervallet på det datum han vill markera samt vad han vill söka på. Det smart med sökfältet är att användaren kan söka på vad som helst, förutsatt att det finns i tabellen. Det gör att användaren aldrig behöver följa någon hjälptext för att veta vad sökfältet söker efter. 
+
+Alla knappar som finns på sidorna är väldigt stora, tydliga och färgglada. På så sätt har vi sett över behöven för i princip alla olika användare. På alla submenyer till produktionen finns även en inramning runt det som skall göras. Detta påvisar och underlättar för användaren att veta vad han skall göra samt att allt får en sorterad struktur som ger sidan en proffsigare utformning. 
