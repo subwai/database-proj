@@ -1,4 +1,21 @@
 \section{System}
 
-Skriva om hur vi kopplar databasen till klasserna och vilka klasser det är som tar hand om kopplingen, vilka versioner av PHP MyQSL mm vi använder. Hur vi delat upp GUI klasserna. 
+För detta project har vi valt att använda oss av Model-View-Controller (MVC) arkitekturen.
+MVC ramverket som används till detta projekt är vårt eget php ramverk baserat på microsofts .NET MVC2.
+Precis som i .NET MVC2 så använder vi även URL-Rewrite funktionen för att få snygga URL, men även för att lättare kunna dela upp de olika avdelningarna (material, produktion, sälj) till egna områden.
 
+\paragraph{Modell}
+Det finns två typer av modeller i vårt project; Databas-modeller och Vy-modeller.
+En databas-modell är en php class som representerar en databas-tabell.
+En vy-modell däremot representerar all den datan som skall visas på respektive vy.
+
+\paragraph{Vy}
+Vyerna används för att representera de olika sidornas specifika inehåll. Dessa byggs upp med hjälp av datan från vy och databas-modellerna.
+
+\paragraph{Kontroll}
+Det finns en kontroller per avdelning, inklusive startsidan där den kallas \"Home\". Dessa kontrollers används som baser till alla tillhörande vyer.
+Här körs alla databas-frågor där vi fyller våra modeller med data från databasen för att sedan skicka vidare dessa till vyerna där datan renderas.\\
+\\
+Databas-länken är skapad i ett övre lager där vi ansluter till vår puccini.cs.lth.se databas genom den redan inbyggda \textit{mysqli} klassen.
+Detta projekt körs stabilt under php 5.4.9 men bör fungera under alla 5.x versioner.
+MySQL servern körs under ver 5.5.18
