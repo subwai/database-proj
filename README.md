@@ -16,9 +16,8 @@ Nu kan du starta programmet och utföra följande handlingar:
 * Blockera en pall.
 * Lista alla pallar som är skapade.
 
-==================
 *Skapa en ny pall*
-==================
+=============
 
 Klicka på "Production department"
 Klicka på "Create Pallet" som finns på övre delen av fönstret
@@ -28,9 +27,8 @@ Klicka på "Submit"
 
 Klart!
 
-====================
 *Söka efter en pall*
-====================
+=============
 
 Klicka på "Production department"
 Du kommer in på alla pallar som finns registrerade
@@ -46,9 +44,8 @@ Skriv sedan in i "Search" vad du vill söka på, du kan söka på:
 
 Du bestämmer själv vad du vill söka på. 
 
-==================
 *Blockera en pall*
-==================
+=============
 
 Klicka på "Production department"
 Välj specifik pall
@@ -57,9 +54,8 @@ Klicka på "Approved"
 Knappen blir röd
 Återgå till tabellen genom att klicka på "Back to pallet tracking"
 
-==================================
 *Lista alla pallar som är skapade*
-==================================
+=============
 
 Klicka på "Production department"
 Låt fälten för sökning vara tomma
