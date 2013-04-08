@@ -3,10 +3,7 @@ database-proj
 
 För att kunna använda programmet i första hand måste denna fil inkluderas:
 
-Detta project kräver URL-Rewrite. För att aktivera rewrite modulen så krävs att man lägger till
-"LoadModule rewrite_module <absolute path>/mod_rewrite.so" till httpd.conf. (<absolute path> ersätts med den absoluta sökvägen ex. /h/d5/g/dic11xxx/serverroot/mod_rewrite.so)
-Det krävs även att man tillåter "AllowOverride" på 3 ställen i httpd.conf genom att sätta "AllowOverride All"; På rad 119, 155, 272.
-mod_rewrite.so går att kompilera fram själv, men vi har valt att lägga in en färdig-kompilerad mod_rewrite.so i /conf/ för detta projekt. 
+Detta project kräver URL-Rewrite.
 URL-Rewrite används för att kunna ta en url och skicka in den som parameter till en sorts startup fil istället för att hämta php filen som ligger på den platsen.  
 
 Nu kan du starta programmet och utföra följande handlingar:
