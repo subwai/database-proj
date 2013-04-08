@@ -22,7 +22,7 @@ Nu kan du starta programmet och utföra följande handlingar:
 Klicka på "Production department"
 Klicka på "Create Pallet" som finns på övre delen av fönstret
 Välj typ av kaka
-Välj vilket företag som ska ha pallen 
+Välj till vilken order du vill binda pallen
 Klicka på "Submit"
 
 Klart!
@@ -59,5 +59,5 @@ Knappen blir röd
 
 Klicka på "Production department"
 Låt fälten för sökning vara tomma
-DU får alla pallar listade
+Du får alla pallar listade
 
