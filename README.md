@@ -3,7 +3,7 @@ database-proj
 
 För att kunna använda programmet i första hand måste denna fil inkluderas:
 
-"LoadModule rewrite_module <hard path>/mod_rewrite.so to httpd.conf".
+"LoadModule rewrite_module <absolute path>/mod_rewrite.so" till httpd.conf.
 Denna filen läggs i httpd.conf. Filens uppgift är att kunna ta en url och skicka in den till en php fil istället för att hämta php filen som ligger på den platsen. 
 
 Nu kan du starta programmet och utföra följande handlingar:

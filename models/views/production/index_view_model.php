@@ -1,7 +1,7 @@
 <?php
 
 class IndexViewModel {
-	public $pallets;
+	public $pallets = array();
 }
 
 ?>
