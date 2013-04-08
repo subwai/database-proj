@@ -1,3 +1,6 @@
+.container {
+	margin-right: 40px;
+}
 .start-btn {
 	width: 33%;
 	padding: 30px 19px;
@@ -18,7 +21,7 @@
 }
 
 .title {
-	margin: 10px 0;
+	margin: 10px 20px;
 	font-weight: bold;
 	font-size: 40px;
 	line-height: 70px;
