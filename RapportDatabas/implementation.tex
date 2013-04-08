@@ -8,7 +8,7 @@ För att kunna implementera en databas
 
 Databasen vi implementerade är av typen MySQL och går att hitta på institutionens egna server som de tillhandager EDA216 studenter. Serverns adress är puccini.cs.lth.se. För att göra våra querys säkra mot attacker använder vi oss av preparedStatements, vilka vi skriver i php. 
 
-Eftersom att flera ska vara inne samtidigt och utföra handlingar i databasen inte var ett krav så beslöt vi oss för att inte implementera transactions. All SQL kod vi använt för att skapa databasen går att hitta under \emph{6. Databasdump}.
+Eftersom att flera ska vara inne samtidigt och utföra handlingar i databasen så har vi implementerat en \"transaction\" då man skapar en ny pallet. Denna funkar bra av två anledningar; Om vi har två kakor med samma ingredienser, men endast en mängd av dessa som tillåter oss att skapa en pallet, så hindrar transaktionen flera användare som samtidigt försöker skapa två pallets av de olika kaksorterna. Den andra anledningen är att den funkar bra som en koll för att se så vi helt enkelt har tillräckliga ingredienser på lager för att skapa en enskilld pallet. All SQL kod vi använt för att skapa databasen går att hitta under \emph{6. Databasdump}.
 
 \subsection{GUI Implementation}
 
