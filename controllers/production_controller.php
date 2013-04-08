@@ -69,6 +69,7 @@ class production_controller extends Application {
 	public function createpallet_post() {
 		$cookie = strtolower($_POST["cookie"]);
 		$order = $_POST["order"];
+		$this->DBCon->autocommit(false);
 		$stmt = $this->DBCon->prepare("INSERT INTO pallet (cookieType, orderId, bakingDate) VALUES (?, ?, CURDATE())");
 		$stmt->bind_param("si", $cookie, $order);
 		if ($stmt->execute()) {
@@ -76,6 +77,19 @@ class production_controller extends Application {
 			$stmt = $this->DBCon->prepare("UPDATE rawmaterial SET storageAmount = storageAmount - coalesce((SELECT amount FROM rawingr WHERE rawMaterialName = name AND cookieType = ?), 0)");
 			$stmt->bind_param("s", $cookie);
 			$stmt->execute();
+			$stmt = $this->DBCon->prepare("SELECT min(storageAmount) >= 0 FROM rawmaterial WHERE name IN (SELECT rawMaterialName FROM rawingr WHERE cookieType = ?)");
+			$stmt->bind_param("s", $cookie);
+			$stmt->execute();
+			$res = $stmt->get_result();
+			$row = $res->fetch_array();
+			if ($row[0]) {
+				$this->DBCon->commit();
+				$this->DBCon->autocommit(true);
+			} else {
+				$this->DBCon->rollback();
+				$this->DBCon->autocommit(true);
+				return $this->view("Not enough ingredients in stock.", false);
+			}
 			return $this->view($id); 
 		} else {
 			return $this->view($this->DBCon->error, false);
