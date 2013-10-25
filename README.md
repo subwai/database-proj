@@ -6,6 +6,9 @@ För att kunna använda programmet i första hand måste denna fil inkluderas:
 Detta project kräver URL-Rewrite.
 URL-Rewrite används för att kunna ta en url och skicka in den som parameter till en sorts startup fil istället för att hämta php filen som ligger på den platsen.  
 
+URL till projektet: http://subwai.no-ip.org/
+
+
 Nu kan du starta programmet och utföra följande handlingar:
 
 * Skapa en ny pall.

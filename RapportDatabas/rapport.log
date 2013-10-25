@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  4 APR 2013 23:17
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  8 APR 2013 16:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -772,13 +772,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--22
 
  []
 
-) (./implementation.tex [2]) [3] (./modellering.tex
+) (./implementation.tex [2] [3]) (./modellering.tex
 <er.jpg, id=89, 642.4pt x 481.8pt>
 File: er.jpg Graphic file (type jpg)
  <use er.jpg>
 Package pdftex.def Info: er.jpg used on input line 8.
 (pdftex.def)             Requested size: 385.44298pt x 289.08221pt.
-) (./relationer.tex [4 <./er.jpg>]) (./databasdump.tex
+) (./relationer.tex [4])
+(./databasdump.tex [5 <./er.jpg>]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 19.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/base/t1cmtt.fd
@@ -786,9 +787,9 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <8> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 19.
- [5])
+ [6])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 59.
- [6]
+ [7]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 59.
 
 (./rapport.aux)
@@ -799,13 +800,13 @@ Package rerunfilecheck Info: File `rapport.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 59.
  ) 
 Here is how much of TeX's memory you used:
- 9433 strings out of 493633
- 131494 string characters out of 3143378
- 372111 words of memory out of 3000000
+ 9434 strings out of 493633
+ 131500 string characters out of 3143378
+ 463111 words of memory out of 3000000
  12523 multiletter control sequences out of 15000+200000
  14992 words of font info for 39 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 33i,6n,35p,590b,1838s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 33i,6n,35p,730b,1838s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
 /usr/local/texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></u
@@ -816,10 +817,10 @@ al/texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local
 /texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/t
 exlive/2011/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/tex
 live/2011/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on rapport.pdf (7 pages, 590501 bytes).
+Output written on rapport.pdf (8 pages, 591369 bytes).
 PDF statistics:
- 217 PDF objects out of 1000 (max. 8388607)
- 195 compressed objects within 2 object streams
- 83 named destinations out of 1000 (max. 500000)
+ 221 PDF objects out of 1000 (max. 8388607)
+ 198 compressed objects within 2 object streams
+ 84 named destinations out of 1000 (max. 500000)
  99 words of extra memory for PDF output out of 10000 (max. 10000000)
 
